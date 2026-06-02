@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Medios de Transporte - ¡A Jugar!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button id="fullscreen-btn" class="icon-btn" aria-label="Pantalla completa">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+    </button>
+    <button id="home-btn" class="icon-btn hidden" aria-label="Volver al menú">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </button>
+
+    <div id="app-container">
+        <!-- Menú Principal -->
+        <div id="main-menu" class="screen active">
+            <header>
+                <h1>¡Explorando los Medios de Transporte!</h1>
+                <p>Elige un juego para empezar a aprender</p>
+            </header>
+            <div class="games-grid" id="games-grid">
+                <!-- Se generarán por JS -->
+            </div>
+        </div>
+
+        <!-- Contenedor de Actividades -->
+        <div id="activity-container" class="screen">
+            <header class="activity-header">
+                <h2 id="activity-title">Título de la actividad</h2>
+                <div class="progress-indicator">
+                    Estrellas ganadas: <span id="stars-count">0</span> ⭐
+                </div>
+            </header>
+            <div id="activity-content" class="activity-content">
+                <!-- El contenido de cada juego se inyectará aquí -->
+            </div>
+            <div class="activity-footer">
+                <button id="check-btn" class="btn primary-btn hidden">Comprobar</button>
+                <div id="feedback-message" class="feedback-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audios -->
+    <audio id="audio-success" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3" preload="auto"></audio>
+    <audio id="audio-error" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3" preload="auto"></audio>
+    <audio id="audio-applause" src="https://assets.mixkit.co/active_storage/sfx/2003/2003-preview.mp3" preload="auto"></audio>
+    <audio id="audio-pop" src="https://assets.mixkit.co/active_storage/sfx/2004/2004-preview.mp3" preload="auto"></audio>
+
+    <script src="svgData.js"></script>
+    <script src="app.js"></script>
+    <script src="game9.js"></script>
+    <script src="game10.js"></script>
+</body>
+</html>
