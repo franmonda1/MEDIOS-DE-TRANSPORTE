@@ -501,12 +501,12 @@ function checkGame7() {
 // ==========================================
 function renderGame3() {
     const items = [
-        { id: 'm1', html: svgs.camion_mercancias, target: 'merc' },
-        { id: 'm2', html: svgs.barco_mercancias, target: 'merc' },
-        { id: 'm3', html: svgs.tren_mercancias, target: 'merc' },
-        { id: 'p1', html: svgs.autobus_pasajeros, target: 'pasa' },
-        { id: 'p2', html: svgs.avion_pasajeros, target: 'pasa' },
-        { id: 'p3', html: svgs.coche_pasajeros, target: 'pasa' }
+        { id: 'm1', html: '<img src="assets/camion.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'merc' },
+        { id: 'm2', html: '<img src="assets/cargo_ship.png" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'merc' },
+        { id: 'm3', html: '<img src="assets/tren.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'merc' },
+        { id: 'p1', html: '<img src="assets/autobus.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'pasa' },
+        { id: 'p2', html: '<img src="assets/passenger_plane.png" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'pasa' },
+        { id: 'p3', html: '<img src="assets/coche.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'pasa' }
     ];
     
     const cols = [
@@ -526,16 +526,20 @@ function checkGame3() {
 // ==========================================
 function renderGame6() {
     const items = [
-        { id: 't1', html: svgs.metro, target: 'terr' },
-        { id: 't2', html: svgs.bicicleta, target: 'terr' },
-        { id: 't3', html: svgs.tractor, target: 'terr' },
-        { id: 'a1', html: svgs.piragua, target: 'agua' },
-        { id: 'a2', html: svgs.moto_acuatica, target: 'agua' },
-        { id: 'a3', html: svgs.barco_velero, target: 'agua' },
-        { id: 'a4', html: svgs.submarino, target: 'agua' },
-        { id: 'v1', html: svgs.globo, target: 'aire' },
-        { id: 'v2', html: svgs.ala_delta, target: 'aire' },
-        { id: 'v3', html: svgs.helicoptero, target: 'aire' }
+        // Kept items
+        { id: 'a2', html: '<img src="assets/moto_acuatica.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'agua' },
+        { id: 'v3', html: '<img src="assets/helicopter.png" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'aire' },
+        { id: 't3', html: '<img src="assets/tractor.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'terr' },
+        { id: 't2', html: '<img src="assets/bicicleta.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'terr' },
+        { id: 'a4', html: '<img src="assets/submarino.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'agua' },
+        { id: 'v2', html: '<img src="assets/ala_delta.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'aire' },
+        
+        // New items
+        { id: 'a5', html: '<img src="assets/catamaran.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'agua' },
+        { id: 't4', html: '<img src="assets/camion.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'terr' },
+        { id: 'v4', html: '<img src="assets/passenger_plane.png" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'aire' },
+        { id: 't5', html: '<img src="assets/patinete.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'terr' },
+        { id: 'a1', html: '<img src="assets/piragua.jpg" width="100" height="100" style="object-fit:cover; border-radius:10px;">', target: 'agua' }
     ];
     
     const cols = [
@@ -653,9 +657,9 @@ function handleConnectClick(side, id) {
         const leftId = currentGameContext.selectedLeft;
         const rightId = currentGameContext.selectedRight;
         
-        // Remove existing connections for these items
+        // Remove existing connections for this left item only (allow multiple lefts to same right)
         currentGameContext.connections = currentGameContext.connections.filter(
-            c => c.leftId !== leftId && c.rightId !== rightId
+            c => c.leftId !== leftId
         );
         
         currentGameContext.connections.push({ leftId, rightId });
